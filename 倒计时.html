@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="time"></div>
+		<hr>
+		<div class="test"></div>
+		<div class="time1"></div>
+
+
+		<script type="text/javascript">
+			function leftTime(startTime) {
+				var start = new Date(startTime) // 固定时间
+				var nowTime = new Date(); // 当前时间
+				var differTime = parseInt(nowTime.getTime() - start.getTime()) // 时差
+				var year = Math.floor(differTime / 1000 / 60 / 60 / 24 / 365) // 年
+				var month = Math.floor(differTime / 1000 / 60 / 60 / 24 % 365 / 30)  // 月
+				var day = Math.floor(differTime / 1000 / 60 / 60 / 24 % 365 % 30) // 日
+
+				var hours = Math.floor(differTime / 1000 / 60 / 60 % 24) // 时数
+				var minut = Math.floor(differTime / 1000 / 60 % 60) // 分
+				var second = Math.floor(differTime / 1000 % 60) // 秒
+				document.querySelector('.time').innerText =  year+ "年" + month+ "月" + day+ "天" + hours+ "时" + minut+ "分" + second+ "秒"
+				document.querySelector('.test').innerText = new Date().valueOf()
+			}
+			setInterval(function() {
+				leftTime("2000/01/02 10:02:02")
+			}, 1000)
+		</script>
+
+
+<!-- 获取当前时间 -->
+		<script type="text/javascript">
+			// new Date() 获取的是文字类型的日期
+			// getTime() valueOf()获取的是 时间距离 1970年1月1日 之间的毫秒数
+			function differTimes() {
+				var difTime = new Date().valueOf() - new Date('2000/01/02 10:02:02').valueOf()
+				var year = new Date().getFullYear()
+				var month = new Date().getMonth() + 1
+				var date = new Date().getDate() // 几日
+				var day = new Date().getDay() // 周几
+				var hours = new Date().getHours()
+				var miunt = new Date().getMinutes()
+				var second = new Date().getSeconds()
+				var dateStr = new Date().toLocaleDateString() //‎ 2020‎年‎8‎月‎21‎日
+				var dateIso= new Date().toISOString() // 2020-08-21T02:21:31.921Z
+				console.log(year,month,date,day,hours,miunt,second ,dateStr , dateIso)
+			}
+			setInterval(function(){
+				differTimes()
+			},1000)
+		</script>
+	</body>
+</html>

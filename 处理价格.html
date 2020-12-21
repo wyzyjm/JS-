@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>处理价格</title>
+  </head>
+  <body>
+    <div class="price">15345435.89</div>
+    <script>
+      // 1. 获取原有价格
+      var price = document.querySelector('.price').innerHTML;
+      // 2. 处理价格
+      function formatPrice(price) {
+        return Number(price).toLocaleString('en-US');
+      }
+      // 3.重新赋值
+      document.querySelector('.price').innerHTML = Number(price).toLocaleString('en-US');
+    </script>
+  </body>
+</html>

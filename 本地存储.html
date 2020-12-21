@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const obj = [{
+				"name":"小明",
+				"age" : 18
+			}]
+			/**
+			 * 存储的时候要转为字符串
+			 * */
+			localStorage.setItem('obj',JSON.stringify(obj))
+			const getObj = JSON.parse(localStorage.getItem('obj'))
+			console.log(getObj)
+		</script>
+	</body>
+</html>
